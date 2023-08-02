@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'blog',
     'django_quill',
+    'taggit',
     'django.contrib.staticfiles',
 ]
 

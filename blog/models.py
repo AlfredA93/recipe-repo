@@ -25,7 +25,7 @@ class Recipe(models.Model):
 
     class Meta:
         "Organise recipes posts by likes in desc order"
-        ordering = ['-likes']
+        ordering = ['published_on']
 
     def __str__(self):
         return self.title
@@ -40,9 +40,9 @@ class Comment(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='comments')
     email = models.EmailField()
-    name = models.ForeignKey(User)
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
-    published = models.DateField(auto_now_day=True)
+    published = models.DateField(auto_now_add=True)
 
     class Meta:
         "order by"
