@@ -40,7 +40,6 @@ class Comment(models.Model):
     "Comments Database Model"
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='comments')
-    email = models.EmailField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
     published = models.DateField(auto_now_add=True)
@@ -50,7 +49,7 @@ class Comment(models.Model):
         ordering = ['published']
 
     def __str__(self):
-        return f"Comment {self.content} by {self.name}"
+        return f"Comment {self.content} by {self.user}"
 
 
 class Bookmark(models.Model):
@@ -58,7 +57,6 @@ class Bookmark(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='bookmarks')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    email = models.EmailField()
     bookmark_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
