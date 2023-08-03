@@ -64,7 +64,7 @@ class Bookmark(models.Model):
         ordering = ['-bookmark_created']
 
     def __str__(self):
-        return self.recipe
+        return f"{self.user} bookmarked {self.recipe}"
 
 
 class Ingredient(models.Model):
