@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_quill.fields import QuillField
 from cloudinary.models import CloudinaryField
 from taggit.managers import TaggableManager
 
@@ -15,7 +16,7 @@ class Recipe(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='recipe_post')
     image = CloudinaryField('image', default='placeholder')
-    instructions = models.TextField()
+    instructions = QuillField()
     season = models.IntegerField(choices=SEASON, default=0)
     published_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
