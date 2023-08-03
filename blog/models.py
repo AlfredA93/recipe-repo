@@ -41,8 +41,8 @@ class Comment(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='comments')
     email = models.EmailField()
-    name = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField(max_length=500)
     published = models.DateField(auto_now_add=True)
 
     class Meta:
@@ -69,7 +69,7 @@ class Bookmark(models.Model):
         return self.recipe
 
 
-class Ingredients(models.Model):
+class Ingredient(models.Model):
     "Ingredients database Model"
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='ingredients')
