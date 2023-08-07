@@ -39,7 +39,7 @@
                         {% for tag in tags %}
                             <a href="#">#{{ tag.name }}</a>
                         {% endfor %}
-                        <p class="card-text">{{ recipe.introduction }}</p>
+                        <p class="card-text">{{ recipe.summary }}</p>
                         <span class="card-text text-muted h6">{{recipe.published_on}}</span>
                         <span><i class="far fa-heart right"></i>{{ post.number_of_likes }}</span>
                     </div>
