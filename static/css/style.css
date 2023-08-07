@@ -1,1 +1,22 @@
 /* Custom CSS Styles */
+
+footer {
+    background-color: #e9ecef;
+    width:100vw;
+    padding: 20px;
+}
+
+/* div.accordian.col-12 {
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0);
+
+}
+
+.accordion-button:focus {
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0);
+} */
+
+.accordion-button:not(.collapsed) {
+    background-color: #e9ecef; 
+}
