@@ -1,10 +1,12 @@
 <!-- Homepage recipe display -->
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
     <!-- Hero Image -->
-    <img src="static/images/hero-slim.webp" class="img-fluid" alt="a plot of land growing corn">
+    <img src="{% static 'images/hero-slim.webp' %}" class="img-fluid" alt="a plot of land growing corn">
 
     <!-- Why Sign Up Accordian -->
     <div class="accordion col-12">
