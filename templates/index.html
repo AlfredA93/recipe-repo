@@ -4,7 +4,7 @@
 {% block content %}
 
     <!-- Hero Image -->
-    <img src="static/images/hero-slim.webp" class="img-fluid" alt="">
+    <img src="static/images/hero-slim.webp" class="img-fluid" alt="a plot of land growing corn">
 
     <!-- Why Sign Up Accordian -->
     <div class="accordion col-12">
@@ -32,11 +32,14 @@
             {% for recipe in recipe_list %}
             <div class="col-md-4">
                 <div class="card">
-                    <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
+                    <img src="{{ recipe.image.url }}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{recipe.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{recipe.author}}</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        {% for tag in tags %}
+                            <a href="#">#{{ tag.name }}</a>
+                        {% endfor %}
+                        <p class="card-text">{{ recipe.introduction }}</p>
                         <span class="card-text text-muted h6">{{recipe.published_on}}</span>
                         <span><i class="far fa-heart right"></i>{{ post.number_of_likes }}</span>
                     </div>
