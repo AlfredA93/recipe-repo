@@ -4,16 +4,21 @@
 {% block content %}
 
     <!-- Hero Image -->
-    <img src="..." class="img-fluid" alt="...">
+    <img src="static/images/hero.webp" class="img-fluid" alt="">
 
     <!-- Why Sign Up Accordian -->
     <div class="accordion col-12" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Accordion Item #1
+            Why Sign Up?
             </button>
-            </h2>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse hide" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+        </div>
         </div>
     </div>
 
@@ -21,14 +26,16 @@
     <div class="col-12 md-4">
         <div class="row">
             {% for recipe in recipe_list %}
-            <div class="card" style="width: 18rem;">
-                <img src="{{recipe.image}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{recipe.title}}</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">{{recipe.author}}</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <span class="card-text text-muted h6">{{recipe.published_on}}</span>
-                    <span><i class="far fa-heart right"></i>{{ post.number_of_likes }}</span>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{recipe.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{recipe.author}}</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <span class="card-text text-muted h6">{{recipe.published_on}}</span>
+                        <span><i class="far fa-heart right"></i>{{ post.number_of_likes }}</span>
+                    </div>
                 </div>
             </div>
 
