@@ -20,3 +20,11 @@ footer {
 .accordion-button:not(.collapsed) {
     background-color: #e9ecef; 
 }
+
+.card {
+    padding: 0;
+}
+
+#detail-img {
+    padding: 0;
+}
