@@ -13,11 +13,11 @@ SEASON = ((0, "All"), (1, "Spring"), (2, "Summer"),
 class Recipe(models.Model):
     """Recipe Database Model"""
     title = models.CharField(max_length=140, unique=True)
-    slug = models.SlugField(max_length=140, unique=True, default="placeholder")
+    slug = models.SlugField(max_length=140, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='recipe_post')
     image = CloudinaryField('image', default='placeholder')
-    summary = models.TextField(max_length=240, default="placeholder")
+    summary = models.TextField(max_length=240)
     instructions = QuillField()
     season = models.IntegerField(choices=SEASON, default=0)
     published_on = models.DateTimeField(auto_now_add=True)
