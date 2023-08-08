@@ -16,15 +16,17 @@ class Recipe(models.Model):
     slug = models.SlugField(max_length=140, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='recipe_post')
-    image = CloudinaryField('image', default='placeholder')
-    summary = models.TextField(max_length=240)
-    instructions = QuillField()
-    season = models.IntegerField(choices=SEASON, default=0)
-    published_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    image = CloudinaryField('image', default='default')
+    image_alt = models.CharField(max_length=140, default='default')
+    season = models.IntegerField(choices=SEASON, default=0)
+    summary = models.TextField(max_length=240)
+    ingredients = QuillField()
+    instructions = QuillField()
+    tags = TaggableManager()
+    published_on = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(
         User, related_name="recipe_like", blank=True)
-    tags = TaggableManager()
 
     class Meta:
         "Organise recipes posts by likes in desc order"
@@ -67,18 +69,3 @@ class Bookmark(models.Model):
 
     def __str__(self):
         return f"{self.user} bookmarked {self.recipe}"
-
-
-class Ingredient(models.Model):
-    "Ingredients database Model"
-    recipe = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE, related_name='ingredients')
-    ingredient = models.CharField(max_length=100)
-    amount = models.CharField(max_length=40)
-
-    class Meta:
-        "order by"
-        ordering = ['-amount']
-
-    def __str__(self):
-        return self.ingredient

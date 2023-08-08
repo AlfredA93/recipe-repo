@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, Comment, Bookmark, Ingredient
+from .models import Recipe, Comment, Bookmark
 
 
 @admin.register(Recipe)
@@ -26,10 +26,3 @@ class BookmarkAdmin(admin.ModelAdmin):
     list_display = ('user', 'recipe', 'bookmark_created')
     search_fields = ['user', 'recipe']
 
-
-@admin.register(Ingredient)
-class IngredientAdmin(admin.ModelAdmin):
-    "Ingredient Admin fields and filtering"
-    list_filter = ['recipe']
-    list_display = ('ingredient', 'amount', 'recipe')
-    search_fields = ['recipe', 'ingredient']
