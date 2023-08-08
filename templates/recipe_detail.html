@@ -4,12 +4,8 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col card col-md-6">
-            <div class="card-body">
-                <img src="{{ recipe.image.url }}" alt="#">
-            </div>
-        </div>
-        <div class="col card col-md-6">
+            <img src="{{ recipe.image.url }}" class="col-md-6 img-fluid rounded" id="detail-img" alt="#">
+        <div class="col-md-6 card">
             <div class="card-body">
                 <div class="h3"> {{ recipe.title }} </div>
                 <p> {{recipe.author}}</p> 
@@ -21,14 +17,16 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col card col-md-6">
+        <div class="col-md-6 card">
             <div class="card-body">
-                <img src="{{ recipe.image.url }}" alt="#">
+                <div class="h5">Ingredients</div>
+                <p> {{ ingredients.ingredient}}</p>
             </div>
         </div>
-        <div class="col card col-md-6">
+        <div class="col-md-6 card">
             <div class="card-body">
-                <div class="h3"> {{ recipe.title }} </div>
+                <div class="h5"> Instructions </div>
+                <p> {{ recipe.instructions.html | safe }} </p>
             </div>
         </div>
     </div>
