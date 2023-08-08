@@ -1,0 +1,38 @@
+<!-- Single Recipe display -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col card col-md-6">
+            <div class="card-body">
+                <img src="{{ recipe.image.url }}" alt="#">
+            </div>
+        </div>
+        <div class="col card col-md-6">
+            <div class="card-body">
+                <div class="h3"> {{ recipe.title }} </div>
+                <p> {{recipe.author}}</p> 
+                <p> {{recipe.published}} </p>
+                <div class="h3"> {{ recipe.summary }} </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col card col-md-6">
+            <div class="card-body">
+                <img src="{{ recipe.image.url }}" alt="#">
+            </div>
+        </div>
+        <div class="col card col-md-6">
+            <div class="card-body">
+                <div class="h3"> {{ recipe.title }} </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
