@@ -36,12 +36,16 @@
                 <div class="card">
                     <img src="{{ recipe.image.url }}" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">{{recipe.title}}</h5>
+                        <a href="{% url 'recipe_detail' recipe.slug %}">
+                            <h5 class="card-title">{{recipe.title}}</h5>
+                        </a>
                         <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{recipe.author}}</h6>
                         {% for tag in tags %}
                             <a href="#">#{{ tag.name }}</a>
                         {% endfor %}
-                        <p class="card-text">{{ recipe.summary }}</p>
+                        <a href="{% url 'recipe_detail' recipe.slug %}">
+                            <p class="card-text">{{ recipe.summary }}</p>
+                        </a>
                         <span class="card-text text-muted h6">{{recipe.published_on}}</span>
                         <span><i class="far fa-heart right"></i>{{ post.number_of_likes }}</span>
                     </div>
